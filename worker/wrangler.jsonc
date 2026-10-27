@@ -1,5 +1,12 @@
 {
   "name": "n-identity",
   "main": "src/index.ts",
-  "compatibility_date": "2024-09-23"
+  "compatibility_date": "2024-09-23",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "n-identity",
+      "database_id": "5147cd7d-4b0b-4f92-9948-cd85d3ce7752"
+    }
+  ]
 }
