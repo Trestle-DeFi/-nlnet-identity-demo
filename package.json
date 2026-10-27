@@ -1,0 +1,11 @@
+{
+  "name": "nlnet-identity-demo",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Standalone non-financial gig-work demo of a reusable identity/Sybil-resistance kit (NLnet).",
+  "workspaces": ["worker", "frontend"],
+  "scripts": {
+    "dev:worker": "npm --workspace worker run dev",
+    "dev:frontend": "npm --workspace frontend run dev"
+  }
+}
