@@ -3,6 +3,18 @@ import { cors } from "hono/cors";
 
 const app = new Hono();
 app.use("*", cors());
+app.use("*", async (c, next) => {
+  const kv = c.env && c.env.KV;
+  if (!kv) return next();
+  const ip = c.req.header("CF-Connecting-IP") || "unknown";
+  const key = `rl:${ip}:${Math.floor(Date.now() / 60000)}`;
+  const current = Number(await kv.get(key)) || 0;
+  if (current >= 60) {
+    return c.json({ error: "rate_limited" }, 429);
+  }
+  await kv.put(key, String(current + 1), { expirationTtl: 120 });
+  return next();
+});
 
 const THRESHOLDS = { passportScore: 20, linkedAccounts: 3 };
 
