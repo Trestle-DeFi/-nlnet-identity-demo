@@ -8,5 +8,11 @@
       "database_name": "n-identity",
       "database_id": "5147cd7d-4b0b-4f92-9948-cd85d3ce7752"
     }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "3d6ec26df85d4613afa6eba997a27076"
+    }
   ]
 }
