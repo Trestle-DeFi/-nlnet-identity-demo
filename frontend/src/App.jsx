@@ -26,7 +26,7 @@ export default function App() {
   const complete = async () => { const r = await fetch(`${API}/gigs/${selected}/complete`, { method: "POST" }); const d = await r.json(); L(`Complete: ${JSON.stringify(d)}`); loadGigs(); };
   const review = async () => { const r = await fetch(`${API}/gigs/${selected}/review`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ rating: Number(rating), comment }) }); const d = await r.json(); L(`Review: ${JSON.stringify(d)}`); loadGigs(); };
   return (
-    <div style={{ fontFamily: "sans-serif", padding: 24, maxWidth: 900, margin: "0 auto" }}>
+    <div className="app">
       <h1>NLnet Identity Demo</h1>
       <p>Non-financial gig workflow using a reusable identity/Sybil-resistance kit (server-validated).</p>
       <section><h2>1. Create gig</h2>
